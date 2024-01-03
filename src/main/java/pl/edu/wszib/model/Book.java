@@ -43,6 +43,13 @@ public class Book {
         this.rentLastName = rentLastName;
     }
 
+    public void clearRent() {
+        this.rent = false;
+        this.rentStartTime = null;
+        this.rentFirstName = null;
+        this.rentLastName = null;
+    }
+
     public boolean isRent() {
         return this.rent;
     }
