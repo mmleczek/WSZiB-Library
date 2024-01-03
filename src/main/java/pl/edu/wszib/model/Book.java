@@ -69,6 +69,18 @@ public class Book {
         return this.author;
     }
 
+    public boolean containsTitle(String searchInput) {
+        return this.title.toLowerCase().contains(searchInput.toLowerCase());
+    }
+
+    public boolean containsAuthor(String searchInput) {
+        return this.author.toLowerCase().contains(searchInput.toLowerCase());
+    }
+
+    public boolean containsISBN(String searchInput) {
+        return this.isbn.toLowerCase().contains(searchInput.toLowerCase());
+    }
+
     public LocalDateTime getRentStartTime() {
         return this.rentStartTime;
     }
