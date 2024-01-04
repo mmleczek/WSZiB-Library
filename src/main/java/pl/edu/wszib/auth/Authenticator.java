@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Authenticator {
     private static final String seed = "!U4ZM6sxnehP*wtW";
-    public static User authUser = null;
+    public User authUser = null;
     private final UserRepo usersRepo = new UserRepo();
     private final Map<String, Integer> accessLevels = new HashMap<>();
 
