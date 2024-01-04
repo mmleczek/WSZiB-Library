@@ -14,9 +14,9 @@ public class Book {
     private String author;
 
     private boolean borrowed = false;
-    private LocalDateTime rentStartTime;
-    private String rentFirstName;
-    private String rentLastName;
+    private LocalDateTime borrowStartTime;
+    private String borrowersFirstName;
+    private String borrowersLastName;
 
     public Book(int id, String isbn, String title, String author) {
         this.id = id;
@@ -25,29 +25,29 @@ public class Book {
         this.author = author;
     }
 
-    public Book(int id, String isbn, String title, String author, boolean rent, LocalDateTime rentStartTime, String rentFirstName, String rentLastName) {
+    public Book(int id, String isbn, String title, String author, boolean rent, LocalDateTime borrowStartTime, String borrowersFirstName, String borrowersLastName) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.borrowed = rent;
-        this.rentStartTime = rentStartTime;
-        this.rentFirstName = rentFirstName;
-        this.rentLastName = rentLastName;
+        this.borrowStartTime = borrowStartTime;
+        this.borrowersFirstName = borrowersFirstName;
+        this.borrowersLastName = borrowersFirstName;
     }
 
-    public void setRent(LocalDateTime rentStartTime, String rentFirstName, String rentLastName) {
+    public void setRent(LocalDateTime rentStartTime, String borrowersFirstName, String borrowersLastName) {
         this.borrowed = true;
-        this.rentStartTime = rentStartTime;
-        this.rentFirstName = rentFirstName;
-        this.rentLastName = rentLastName;
+        this.borrowStartTime = rentStartTime;
+        this.borrowersFirstName = borrowersFirstName;
+        this.borrowersLastName = borrowersLastName;
     }
 
     public void clearRent() {
         this.borrowed = false;
-        this.rentStartTime = null;
-        this.rentFirstName = null;
-        this.rentLastName = null;
+        this.borrowStartTime = null;
+        this.borrowersFirstName = null;
+        this.borrowersLastName = null;
     }
 
     public boolean isBorrowed() {
@@ -55,7 +55,7 @@ public class Book {
     }
 
     public boolean isOverdue() {
-        Duration duration = Duration.between(rentStartTime, LocalDateTime.now());
+        Duration duration = Duration.between(borrowStartTime, LocalDateTime.now());
         long weeksPassed = duration.toDays() / 7;
         return weeksPassed >= 2;
     }
@@ -89,15 +89,15 @@ public class Book {
     }
 
     public LocalDateTime getRentStartTime() {
-        return this.rentStartTime;
+        return this.borrowStartTime;
     }
 
-    public String getRentFirstName() {
-        return this.rentFirstName;
+    public String getBorrowersFirstName() {
+        return this.borrowersFirstName;
     }
 
-    public String getRentLastName() {
-        return this.rentLastName;
+    public String getBorrowersLastName() {
+        return this.borrowersLastName;
     }
 
     @Override
@@ -113,18 +113,6 @@ public class Book {
         s.append(this.getAuthor());
         s.append(" BORROWED: ");
         s.append(this.isBorrowed() ? "YES" : "NO");
-
-        if (this.isBorrowed()) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
-            s.append("\nRENT START DATE: ");
-            s.append(this.rentStartTime.format(formatter));
-            s.append(" IS RENT OVERDUE: ");
-            s.append(this.isOverdue() ? "YES" : "NO");
-            s.append(" RENT FIRST NAME: ");
-            s.append(this.getRentFirstName());
-            s.append(" RENT LAST NAME: ");
-            s.append(this.getRentLastName());
-        }
 
         return s.toString();
     }
