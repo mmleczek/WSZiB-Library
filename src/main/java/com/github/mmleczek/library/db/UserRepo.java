@@ -1,6 +1,6 @@
-package pl.edu.wszib.db;
-import pl.edu.wszib.model.User;
-import pl.edu.wszib.auth.Authenticator;
+package com.github.mmleczek.library.db;
+import com.github.mmleczek.library.auth.Authenticator;
+import com.github.mmleczek.library.model.User;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package pl.edu.wszib.model;
+package com.github.mmleczek.library.model;
 
 public class User {
     private String name;

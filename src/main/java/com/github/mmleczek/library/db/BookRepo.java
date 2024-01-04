@@ -1,4 +1,4 @@
-package pl.edu.wszib.db;
+package com.github.mmleczek.library.db;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import pl.edu.wszib.model.Book;
+import com.github.mmleczek.library.model.Book;
 
 public class BookRepo {
     private final List<Book> books = new ArrayList<>();

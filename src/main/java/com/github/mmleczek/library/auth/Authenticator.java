@@ -1,7 +1,6 @@
-package pl.edu.wszib.auth;
-import pl.edu.wszib.gui.GUIOption;
-import pl.edu.wszib.model.User;
-import pl.edu.wszib.db.UserRepo;
+package com.github.mmleczek.library.auth;
+import com.github.mmleczek.library.model.User;
+import com.github.mmleczek.library.db.UserRepo;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.HashMap;
