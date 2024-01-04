@@ -8,10 +8,10 @@ public class Book {
     // There might be multiple books from the same author, publisher etc.
     // so we want to somehow keep a track of them, that's why there is a
     // unique id for each of them.
-    private int id;
-    private String isbn;
-    private String title;
-    private String author;
+    private final int id;
+    private final String isbn;
+    private final String title;
+    private final String author;
 
     private boolean borrowed = false;
     private LocalDateTime borrowStartTime;
