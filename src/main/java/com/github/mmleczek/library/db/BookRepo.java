@@ -47,14 +47,13 @@ public class BookRepo {
         this.books.add(new Book(newId, isbn, title, author));
     }
 
-    public boolean borrowBook(int id, String rentFirstName, String rentLastName) {
+    public int borrowBook(int id, String borrowersFirstName, String borrowersLastName) {
         Book book = this.getBookById(id);
-        if (book != null && !book.isBorrowed()) {
-            book.setRent(LocalDateTime.now(), rentFirstName, rentLastName);
-            return true;
-        }
+        if (book == null) { return 1; }
+        if (book.isBorrowed()) { return 2; }
 
-        return false;
+        book.setRent(LocalDateTime.now(), borrowersFirstName, borrowersLastName);
+        return 0;
     }
 
     public List<Book> getBooks() {
