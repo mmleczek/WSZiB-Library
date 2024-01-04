@@ -36,9 +36,9 @@ public class Book {
         this.borrowersLastName = borrowersLastName;
     }
 
-    public void setRent(LocalDateTime rentStartTime, String borrowersFirstName, String borrowersLastName) {
+    public void setRent(LocalDateTime borrowStartTime, String borrowersFirstName, String borrowersLastName) {
         this.borrowed = true;
-        this.borrowStartTime = rentStartTime;
+        this.borrowStartTime = borrowStartTime;
         this.borrowersFirstName = borrowersFirstName;
         this.borrowersLastName = borrowersLastName;
     }
@@ -55,9 +55,13 @@ public class Book {
     }
 
     public boolean isOverdue() {
-        Duration duration = Duration.between(borrowStartTime, LocalDateTime.now());
-        long weeksPassed = duration.toDays() / 7;
-        return weeksPassed >= 2;
+        if (this.borrowStartTime != null) { // for not borrowed books, this will be null, that's why this check is needed.
+            Duration duration = Duration.between(this.borrowStartTime, LocalDateTime.now());
+            long weeksPassed = duration.toDays() / 7;
+            return weeksPassed >= 2;
+        } else {
+            return false;
+        }
     }
 
     public int getId() {
