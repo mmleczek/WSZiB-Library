@@ -1,5 +1,7 @@
 package com.github.mmleczek.library.model;
 
+import com.github.mmleczek.library.auth.Authenticator;
+
 public class User {
     private String name;
     private String password;
@@ -38,6 +40,8 @@ public class User {
     public String getGroup() {
         return this.name;
     }
+
+    public int getAccessLevel() { return Authenticator.getAccessLevelForGroup(this.getGroup()); }
 
     public boolean isInGroup(String group) {
         return this.group.equals(group);
