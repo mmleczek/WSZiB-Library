@@ -1,12 +1,22 @@
 package pl.edu.wszib.auth;
+import pl.edu.wszib.gui.GUIOption;
 import pl.edu.wszib.model.User;
 import pl.edu.wszib.db.UserRepo;
 import org.apache.commons.codec.digest.DigestUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Authenticator {
     private static final String seed = "!U4ZM6sxnehP*wtW";
     public static User authUser = null;
     private final UserRepo usersRepo = new UserRepo();
+    private final Map<String, Integer> accessLevels = new HashMap<>();
+
+    public Authenticator() {
+        this.accessLevels.put("admin", 999);
+        this.accessLevels.put("user", 0);
+    }
 
     public boolean authenticate(String name, String password) {
         User dbUser = usersRepo.getUser(name);
@@ -17,6 +27,10 @@ public class Authenticator {
         } else {
             return false;
         }
+    }
+
+    public int getAccessLevelForGroup(String group) {
+        return this.accessLevels.get(group);
     }
 
     public static String genPasswordHash(String password) {
