@@ -92,7 +92,7 @@ public class Book {
         return this.isbn.toLowerCase().contains(searchInput.toLowerCase());
     }
 
-    public LocalDateTime getRentStartTime() {
+    public LocalDateTime getBorrowStartTime() {
         return this.borrowStartTime;
     }
 
