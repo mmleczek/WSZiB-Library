@@ -33,7 +33,7 @@ public class Book {
         this.borrowed = rent;
         this.borrowStartTime = borrowStartTime;
         this.borrowersFirstName = borrowersFirstName;
-        this.borrowersLastName = borrowersFirstName;
+        this.borrowersLastName = borrowersLastName;
     }
 
     public void setRent(LocalDateTime rentStartTime, String borrowersFirstName, String borrowersLastName) {
