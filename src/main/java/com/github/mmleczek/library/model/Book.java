@@ -96,6 +96,10 @@ public class Book {
         return this.borrowStartTime;
     }
 
+    public LocalDateTime getBorrowEndTime() {
+        return this.borrowStartTime.plusDays(14);
+    }
+
     public String getBorrowersFirstName() {
         return this.borrowersFirstName;
     }
