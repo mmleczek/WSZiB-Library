@@ -47,9 +47,9 @@ public class BookRepo {
         this.books.add(new Book(newId, isbn, title, author));
     }
 
-    public boolean rentBook(int id, String rentFirstName, String rentLastName) {
+    public boolean borrowBook(int id, String rentFirstName, String rentLastName) {
         Book book = this.getBookById(id);
-        if (book != null && !book.isRent()) {
+        if (book != null && !book.isBorrowed()) {
             book.setRent(LocalDateTime.now(), rentFirstName, rentLastName);
             return true;
         }
@@ -61,15 +61,15 @@ public class BookRepo {
         return this.books;
     }
 
-    public List<Book> getRentedBooks() {
+    public List<Book> getBorrowedBooks() {
         return this.books.stream()
-                .filter(book -> book.isRent())
+                .filter(book -> book.isBorrowed())
                 .collect(Collectors.toList());
     }
 
-    public List<Book> getOverdueRentBooks() {
+    public List<Book> getOverdueBooks() {
         return this.books.stream()
-                .filter(book -> book.isRentOverdue())
+                .filter(book -> book.isOverdue())
                 .collect(Collectors.toList());
     }
 
