@@ -13,7 +13,10 @@ public class BookRepo {
     private final List<Book> books = new ArrayList<>();
 
     public BookRepo() {
-        this.books.add(new Book(0, "978-0-306-40615-7", "Clean Code", "Robert C. Martin"));
+        LocalDateTime currentTime = LocalDateTime.now();
+        LocalDateTime pastTime = LocalDateTime.of(2023, 11, 2, 1, 1, 1);
+        LocalDateTime pastTime2 = LocalDateTime.of(2022, 2, 9, 3, 3, 3);
+        this.books.add(new Book(0, "978-0-306-40615-7", "Clean Code", "Robert C. Martin", true, pastTime, "Adam", "Nowak"));
         this.books.add(new Book(1, "978-0-7356-6745-7", "Effective Java", "Joshua Bloch"));
         this.books.add(new Book(2, "978-0-321-35668-0", "The Pragmatic Programmer", "Andrew Hunt, David Thomas"));
         this.books.add(new Book(3, "978-1-4493-8504-9", "Java Concurrency in Practice", "Brian Goetz"));
@@ -21,7 +24,7 @@ public class BookRepo {
         this.books.add(new Book(5, "978-1-59059-725-4", "Head First Design Patterns", "Eric Freeman, Elisabeth Robson"));
         this.books.add(new Book(6, "978-0-321-55378-3", "Refactoring: Improving the Design of Existing Code", "Martin Fowler"));
         this.books.add(new Book(7, "978-0-596-52068-7", "Design Patterns: Elements of Reusable Object-Oriented Software", "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides"));
-        this.books.add(new Book(8, "978-0-201-63361-0", "Code Complete", "Steve McConnell"));
+        this.books.add(new Book(8, "978-0-201-63361-0", "Code Complete", "Steve McConnell", true, currentTime, "Jarosław", "Januszowski"));
         this.books.add(new Book(9, "978-0-134-00927-0", "The Mythical Man-Month", "Frederick P. Brooks Jr."));
         this.books.add(new Book(10, "978-83-240-2345-2", "Ferdydurke", "Witold Gombrowicz"));
         this.books.add(new Book(11, "978-0-13-235088-4", "Clean Architecture", "Robert C. Martin"));
@@ -31,7 +34,7 @@ public class BookRepo {
         this.books.add(new Book(15, "978-0-321-34970-8", "Effective Python", "Brett Slatkin"));
         this.books.add(new Book(16, "978-1-491-92467-0", "Java 8 in Action", "Raoul-Gabriel Urma, Mario Fusco, Alan Mycroft"));
         this.books.add(new Book(17, "978-0-13-468599-1", "Modern Java in Action", "Raoul-Gabriel Urma, Mario Fusco, Alan Mycroft"));
-        this.books.add(new Book(18, "978-83-10-07678-4", "Lalka", "Bolesław Prus"));
+        this.books.add(new Book(18, "978-83-10-07678-4", "Lalka", "Bolesław Prus", true, pastTime2, "Jan", "Kowalski"));
     }
 
     public void addBook(String isbn, String title, String author) {
